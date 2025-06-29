@@ -7,7 +7,7 @@ const ListaNoticia = ({ noticia }) => {
         alt={noticia.source_name}
       />
       <div className="card-body p-1">
-        <h6 className="card-title">{noticia.title}</h6>
+        <h6 className="card-header">{noticia.title}</h6>
         <p className="card-text truncate-3-lines">
           {(noticia.description)}
         </p>
@@ -16,12 +16,12 @@ const ListaNoticia = ({ noticia }) => {
             Pais: <strong>{noticia.country}</strong>
           </span>
           <span>
-            Categoria: <strong>{noticia.category}</strong>
+            Publicacion: <strong>{noticia.pubDate}</strong>
           </span>
         </div>
       </div>
-      <div className="card-footer">
-        <button className="botonVerNoticia text-white">Ver noticia completa</button>
+      <div className="card-footer d-flex justify-content-center">
+        <a className="botonVerNoticia text-white" href={noticia.link} target="blank" >Ver noticia completa</a>
       </div>
     </div>
   );
