@@ -20,7 +20,6 @@ function App() {
       const respuesta = await fetch(
         `https://newsdata.io/api/1/latest?apikey=pub_b742216246274da4ae193b631437828d&category=${categoria}&language=es`
       );
-      console.log(respuesta);
       const datos = await respuesta.json()
       setNoticia(datos.results || [])
       setMostrarSpinner(false)
