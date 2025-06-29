@@ -9,9 +9,10 @@
     { value: "politics", label: "Política" },
   ];
 
-const Formulario = ({ setCategoria }) => {
+const Formulario = ({ setCategoria, setMostrarSpinner }) => {
 
   const handleChange = (e) => {
+    setMostrarSpinner(true)
     setCategoria(e.target.value);
   };
 

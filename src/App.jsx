@@ -1,13 +1,15 @@
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import "./App.css";
 import Formulario from "./components/Formulario";
 import ListaNoticia from "./components/ListaNoticia";
 import Titulo from "./components/Titulo";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Spinner } from "react-bootstrap";
 
 function App() {
   const [noticia, setNoticia] = useState([]);
-  const [categoria, setCategoria] = useState('sports')  
+  const [categoria, setCategoria] = useState('sports')
+  const [mostrarSpinner, setMostrarSpinner] = useState(true)
 
   useEffect(() => {
     obtenerNoticia();
@@ -21,6 +23,7 @@ function App() {
       console.log(respuesta);
       const datos = await respuesta.json()
       setNoticia(datos.results || [])
+      setMostrarSpinner(false)
     } catch (error) {
       console.log('Eror al obtener noticias')
     }
@@ -31,13 +34,17 @@ function App() {
       <main className="container my-5">
         <Titulo />
         <section className="container">
-          <Formulario setCategoria={setCategoria} />
+          <Formulario setCategoria={setCategoria} setMostrarSpinner={setMostrarSpinner} />
         </section>
-        <div className="container my-3 row row-cols-1 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4">
+        {mostrarSpinner ? ( 
+          <div className="my-3 d-flex justify-content-center">
+            <Spinner animation="grow" variant="ligth" />
+          </div>
+        ) : <div className="container my-3 row row-cols-1 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4">
           {noticia.map((noticia, index)=> (
             <ListaNoticia key={index} noticia={noticia} />
           ))}
-        </div>
+        </div>}
       </main>
     </>
   );
