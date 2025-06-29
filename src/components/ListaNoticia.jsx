@@ -7,7 +7,7 @@ const ListaNoticia = ({ noticia }) => {
         alt={noticia.source_name}
       />
       <div className="card-body p-1">
-        <h6 className="card-header">{noticia.title}</h6>
+        <h6 className="card-header truncate-3-lines">{noticia.title}</h6>
         <p className="card-text truncate-3-lines">
           {(noticia.description)}
         </p>
