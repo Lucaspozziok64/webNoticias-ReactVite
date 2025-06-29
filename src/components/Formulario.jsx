@@ -1,14 +1,30 @@
-const Formulario = () => {
+  const categorias = [
+    { value: "sports", label: "Deportes" },
+    { value: "technology", label: "Tecnología" },
+    { value: "business", label: "Negocios" },
+    { value: "entertainment", label: "Entretenimiento" },
+    { value: "health", label: "Salud" },
+    { value: "science", label: "Ciencia" },
+    { value: "world", label: "Internacional" },
+    { value: "politics", label: "Política" },
+  ];
+
+const Formulario = ({ setCategoria }) => {
+
+  const handleChange = (e) => {
+    setCategoria(e.target.value);
+  };
+
   return (
     <form className="container d-flex formulario">
-      <label style={{ fontStyle: 'italic' }}>
-        Buscar por categoria:
-      </label>
-      <select className="form-select" aria-label="Default select example">
-        <option selected>Opciones</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
+      <label style={{ fontStyle: "italic" }}>Buscar por categoria:</label>
+      <select className="form-select" onChange={handleChange}>
+        <option value="">Selecciona una categoria</option>
+        {categorias.map((cat) => (
+          <option key={cat.value} value={cat.value}>
+            {cat.label}
+          </option>
+        ))}
       </select>
     </form>
   );
