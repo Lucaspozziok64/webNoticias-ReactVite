@@ -33,7 +33,7 @@ function App() {
         <section className="container">
           <Formulario setCategoria={setCategoria} />
         </section>
-        <div className="container my-3  row row-cols-1 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4">
+        <div className="container my-3 row row-cols-1 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4">
           {noticia.map((noticia, index)=> (
             <ListaNoticia key={index} noticia={noticia} />
           ))}

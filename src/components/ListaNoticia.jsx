@@ -1,22 +1,22 @@
 const ListaNoticia = ({ noticia }) => {
   return (
-    <div className="card mx-3 p-1">
+    <div className="card p-1 mx-2">
       <img
         src={noticia.image_url}
         className="card-img-top"
         alt={noticia.source_name}
       />
       <div className="card-body p-1">
-        <h5 className="card-title">{noticia.title}</h5>
-        <p className="card-text">
-          {noticia.description}
+        <h6 className="card-title">{noticia.title}</h6>
+        <p className="card-text truncate-3-lines">
+          {(noticia.description)}
         </p>
         <div className="d-flex flex-column mb-0">
           <span>
             Pais: <strong>{noticia.country}</strong>
           </span>
           <span>
-            Categoria: <strong>{noticia.keywords}</strong>
+            Categoria: <strong>{noticia.category}</strong>
           </span>
         </div>
       </div>
