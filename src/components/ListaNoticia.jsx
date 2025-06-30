@@ -1,13 +1,13 @@
 const ListaNoticia = ({ noticia }) => {
   return (
-    <div className="card p-1 mx-2">
+    <div className="card p-1 mx-3">
       <img
         src={noticia.image_url}
         className="card-img-top"
         alt={noticia.source_name}
       />
       <div className="card-body p-1">
-        <h6 className="card-header truncate-3-lines">{noticia.title}</h6>
+        <h6 className="card-header">{noticia.title}</h6>
         <p className="card-text truncate-3-lines">
           {(noticia.description)}
         </p>

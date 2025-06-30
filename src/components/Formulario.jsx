@@ -18,7 +18,7 @@ const Formulario = ({ setCategoria, setMostrarSpinner }) => {
 
   return (
     <form className="container d-flex formulario">
-      <label style={{ fontStyle: "italic" }}>Buscar por categoria:</label>
+      <label style={{ fontStyle: "italic" }}><strong>Buscar por categoria:</strong></label>
       <select className="form-select" onChange={handleChange}>
         <option value="">Selecciona una categoria</option>
         {categorias.map((cat) => (

@@ -5,6 +5,8 @@ import ListaNoticia from "./components/ListaNoticia";
 import Titulo from "./components/Titulo";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Spinner } from "react-bootstrap";
+import CarouselNoticias from "./components/CarouselNoticias";
+import imagen3 from './img/imagenBitcoin.png'
 
 function App() {
   const [noticia, setNoticia] = useState([]);
@@ -30,9 +32,10 @@ function App() {
 
   return (
     <>
-      <main className="container my-5">
+      <main className="container my-4">
         <Titulo />
-        <section className="container">
+        <CarouselNoticias className="my-3" imagen3={imagen3} />
+        <section className="container my-5">
           <Formulario setCategoria={setCategoria} setMostrarSpinner={setMostrarSpinner} />
         </section>
         {mostrarSpinner ? ( 
@@ -45,6 +48,10 @@ function App() {
           ))}
         </div>}
       </main>
+      <footer className="bg-black p-2 text-white text-center">
+        <p className="mb-0">&copy;Todos los derechos reservados</p>
+        <p className="mb-0">Desarrollado por <a href="https://github.com/Lucaspozziok64">Lucas Figueroa</a></p>
+      </footer>
     </>
   );
 }
