@@ -20,7 +20,7 @@ function App() {
   const obtenerNoticia = async () => {
     try {
       const respuesta = await fetch(
-        `https://newsdata.io/api/1/latest?apikey=pub_b742216246274da4ae193b631437828d&category=${categoria}&language=es`
+        `https://newsdata.io/api/1/latest?apikey=pub_7c1484730fa64707bd2289a5f123fd36&category=${categoria}&language=es`
       );
       const datos = await respuesta.json()
       setNoticia(datos.results || [])
