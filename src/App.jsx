@@ -17,10 +17,11 @@ function App() {
     obtenerNoticia();
   }, [categoria]);
 
+  const miApiKey = (import.meta.env.VITE_API_APIKEY)
   const obtenerNoticia = async () => {
     try {
       const respuesta = await fetch(
-        `https://newsdata.io/api/1/latest?apikey=&category=${categoria}&language=es`
+        `https://newsdata.io/api/1/latest?apikey=${miApiKey}&category=${categoria}&language=es`
       );
       const datos = await respuesta.json()
       setNoticia(datos.results || [])
